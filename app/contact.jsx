@@ -43,7 +43,7 @@ function contact() {
     if (Object.keys(newErrors).length === 0) {
       console.log('Form submitted successfully:', formData)
       try {
-        const response = await fetch('/api/contact/route', {
+        const response = await fetch('/api/contact/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
