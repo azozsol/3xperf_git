@@ -6,7 +6,7 @@ export async function POST(req) {
         const sessionId = body.sessionId || randomUUID(); // Generate if not provided
 
         const auth = Buffer.from("slim:slim1234").toString("base64");
-        const response = await fetch("https://solmoh.app.n8n.cloud/webhook/2a22891c-d78e-479e-a83b-93b686ae7bf0/chat", {
+        const response = await fetch("https://xperf.app.n8n.cloud/webhook/a889d2ae-2159-402f-b326-5f61e90f602e/chat", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",

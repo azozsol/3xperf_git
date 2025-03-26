@@ -130,13 +130,8 @@ function MagneticSocialLink({
 }
 
 export default function Personal() {
-
-
-
   const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
-
-  
   return (
     <motion.main
       className="space-y-6"
@@ -151,7 +146,6 @@ export default function Personal() {
         <div className="flex-1">
           <ChatHeadline />
         </div>
-        
       </motion.section>
 
       <Divider text="Digital Marketing" />
@@ -160,46 +154,51 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <div className="flex flex-col items-center justify-center">
-          <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-400">
-            Targeted Advertising
-          </p>
-          <p className='"text-zinc-600 text-2xl dark:text-zinc-400'>
-            Reach the right buyers with data-driven strategies
-          </p>
-          <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-400">
-            High-Impact Campaigns
-          </p>
-          <p className='"text-zinc-600 text-2xl dark:text-zinc-400'>
-            Google Ads, Meta Ads, and retargeting for maximum ROI
-          </p>
-          <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-400">
-            Lead Generation & Nurturing
-          </p>
-          <p className='"text-zinc-600 text-2xl dark:text-zinc-400'>
-            Attract, engage, and convert prospects efficiently
-          </p>
+        <div className="flex flex-col items-center justify-center text-center text-zinc-600 dark:text-zinc-400">
+          {[
+            [
+              'Targeted Advertising',
+              'Reach the right buyers with data-driven strategies',
+            ],
+            [
+              'High-Impact Campaigns',
+              'Google Ads, Meta Ads, and retargeting for maximum ROI',
+            ],
+            [
+              'Lead Generation & Nurturing',
+              'Attract, engage, and convert prospects efficiently',
+            ],
+          ].map(([title, description]) => (
+            <div key={title} className="mb-4">
+              <p className="text-2xl font-bold">{title}</p>
+              <p className="text-lg">{description}</p>
+            </div>
+          ))}
         </div>
       </motion.section>
 
       <Divider text="Catchy Creative Content" />
+
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <div className="flex flex-col items-center justify-center">
-          <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-400">
-            Attention-Grabbing Ads
-          </p>
-          <p className='"text-zinc-600 text-2xl dark:text-zinc-400'>
-            Unique, non-traditional real estate content
-          </p>
-          <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-400">
-            Short-Form Video Mastery
-          </p>
-          <p className='"text-zinc-600 text-2xl dark:text-zinc-400'>
-            We create curiosity-driven content that converts
-          </p>
+        <div className="flex flex-col items-center justify-center text-center text-zinc-600 dark:text-zinc-400">
+          {[
+            [
+              'Attention-Grabbing Ads',
+              'Unique, non-traditional real estate content',
+            ],
+            [
+              'Short-Form Video Mastery',
+              'We create curiosity-driven content that converts',
+            ],
+          ].map(([title, description]) => (
+            <div key={title} className="mb-4">
+              <p className="text-2xl font-bold">{title}</p>
+              <p className="text-lg">{description}</p>
+            </div>
+          ))}
         </div>
       </motion.section>
 
@@ -209,28 +208,30 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <div className="flex flex-col items-center justify-center">
-          <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-400">
-            Landing page Ai Chat
-          </p>
-          <p className='"text-zinc-600 text-2xl dark:text-zinc-400'>
-            Answers question, filter qualified leads & collects contact info
-          </p>
-          <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-400">
-            Direct Call to action
-          </p>
-          <p className='"text-zinc-600 text-2xl dark:text-zinc-400'>
-            Sends the project brochure via WhatsApp & starts convo
-          </p>
-          <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-400">
-            Automated Booking management
-          </p>
-          <p className='"text-zinc-600 text-2xl dark:text-zinc-400'>
-            Our Ai agent book your calendar & send you confirmation email
-          </p>
-          <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-400">
-            Reporting
-          </p>
+        <div className="flex flex-col items-center justify-center text-center text-zinc-600 dark:text-zinc-400">
+          {[
+            [
+              'Landing page Ai Chat',
+              'Answers question, filter qualified leads & collects contact info',
+            ],
+            [
+              'Direct Call to action',
+              'Sends the project brochure via WhatsApp & starts convo',
+            ],
+            [
+              'Automated Booking management',
+              'Our Ai agent book your calendar & send you confirmation email',
+            ],
+            [
+              'Reporting',
+              '',
+            ],
+          ].map(([title, description]) => (
+            <div key={title} className="mb-4">
+              <p className="text-2xl font-bold">{title}</p>
+              <p className="text-lg">{description}</p>
+            </div>
+          ))}
         </div>
       </motion.section>
 

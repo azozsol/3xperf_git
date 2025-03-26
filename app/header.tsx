@@ -24,15 +24,17 @@ export function Header() {
         </TextEffect>
       </div> */}
       {/* Logo on the left */}
-      <div>
-        <Image
-          src={logo}
-          alt="Logo"
-          width={90}
-          height={90}
-          className=""
-        />
-      </div>
+      <Link href="/" passHref>
+        <div>
+          <Image
+            src={logo}
+            alt="Logo"
+            width={90}
+            height={90}
+            className="dark:invert"
+          />
+        </div>
+      </Link>
       {/* Button on the right */}
       <div>
         <button className="w-full rounded-3xl border-4 border-zinc-900 bg-white px-4 py-2 text-zinc-600 hover:bg-zinc-400 hover:text-white dark:text-zinc-500 dark:hover:bg-zinc-700">

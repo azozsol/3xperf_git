@@ -50,15 +50,15 @@ function chatHeadline() {
 
   return (
     <>
-      <div className="relative h-80 w-[80%] rounded-3xl border-2 border-black shadow-lg">
+      <div className="relative h-80 w-[80%] rounded-3xl border-2 border-black dark:border-white shadow-lg">
         {/* Header */}
-        <div className="flex items-center justify-between border-b-2 border-black px-4 py-3">
+        <div className="flex items-center justify-between border-b-2 border-black dark:border-white px-4 py-3">
           <h2 className="text-xl font-bold text-blue-600">Chat with 3xperf</h2>
           <button
             onClick={() => setIsOpen(false)}
             className="cursor-pointer text-black transition-transform duration-200 hover:scale-125"
           >
-            <X size={20} />
+            <X size={20} className='dark:text-white' />
           </button>
         </div>
 
@@ -121,19 +121,19 @@ function chatHeadline() {
           className="absolute -right-30 -bottom-1"
         />
       </div>
-      <div className="w-full rounded-lg border bg-white p-4 shadow-lg">
+      <div className="w-full rounded-lg border bg-white  dark:bg-zinc-600 p-4 shadow-lg">
         <div className="flex">
           <input
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onFocus={() => setChatStarted(true)} // Hide text when user starts typing
-            className="flex-1 rounded-l-lg border p-2"
+            className="flex-1 rounded-l-lg border p-2 border-r-0 "
             placeholder="Type a message..."
           />
           <button
             onClick={sendMessage}
-            className="rounded-r-lg bg-blue-500 p-2 text-white"
+            className="rounded-r-lg bg-blue-900 p-2 px-8 hover:bg-blue-600 cursor-pointer text-white"
           >
             Send
           </button>
