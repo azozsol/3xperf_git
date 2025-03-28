@@ -116,9 +116,9 @@ function chatHeadline() {
         <Image
           src={avatarIcon}
           alt="Avatar"
-          width={90}
-          height={90}
-          className="absolute -right-30 -bottom-1"
+          // width={90}
+          // height={90}
+          className="absolute -right-20 -bottom-1 md:-right-30 md:w-[20%] w-[30%] "
         />
       </div>
       <div className="w-full rounded-lg border bg-white  dark:bg-zinc-600 p-4 shadow-lg">

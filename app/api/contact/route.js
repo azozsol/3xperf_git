@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { getEmailTemplate } from './emailTemplate'; 
+import { html } from 'motion/react-client';
 
 export async function POST(request) {
   try {
@@ -28,12 +30,30 @@ export async function POST(request) {
       },
     });
 
+    const escapeHtml = (unsafe) => {
+      return unsafe
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    };
+    
+    const emailHtml = getEmailTemplate({
+      name: escapeHtml(name),
+      email: escapeHtml(email),
+      phone: escapeHtml(phone),
+      subject: escapeHtml(subject),
+      message: escapeHtml(message),
+    });
+
     const mailOptions = {
       from: email, // Sender's email (from the form)
       to: 'sol.moh.azoz@gmail.com', // Your email
       cc: email, // CC to the sender
       subject: `New Contact Form Submission from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject || 'N/A'}\nMessage: ${message || 'N/A'}`,
+      // text: emailHtml,
+      html: emailHtml
     };
 
     console.log('Sending email with options:', mailOptions); // Debug email options
