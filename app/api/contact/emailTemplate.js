@@ -18,7 +18,7 @@ export const getEmailTemplate = ({ name, email, phone, subject, message }) => `
             <tr>
               <td align="center" style="padding: 20px 0; background-color: #e5e5e5;">
                 <img
-                  src="http://localhost:3000/images/logo.svg"
+                  src="https://3xperf-git.vercel.app/images/logo.svg"
                   alt="Company Logo"
                   width="150"
                   style="display: block; max-width: 150px; height: auto;"
@@ -59,7 +59,7 @@ export const getEmailTemplate = ({ name, email, phone, subject, message }) => `
             <tr>
               <td align="center" style="padding: 20px; background-color: #e5e5e5;">
                 <img
-                  src="http://localhost:3000/images/footerImage.svg"
+                  src="https://3xperf-git.vercel.app/images/footerImage.svg"
                   alt="Footer Image"
                   width="100%"
                   style="display: block; max-width: 600px; height: auto; border-radius: 0 0 8px 8px;"

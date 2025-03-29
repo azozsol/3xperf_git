@@ -50,7 +50,7 @@ function chatHeadline() {
 
   return (
     <>
-      <div className="relative h-80 w-[80%] rounded-3xl border-2 border-black dark:border-white shadow-lg">
+      <div className="relative h-90 w-full md:w-[80%] rounded-3xl border-2 border-black dark:border-white shadow-lg">
         {/* Header */}
         <div className="flex items-center justify-between border-b-2 border-black dark:border-white px-4 py-3">
           <h2 className="text-xl font-bold text-blue-600">Chat with 3xperf</h2>
@@ -64,10 +64,6 @@ function chatHeadline() {
 
         {/* Content */}
 
-        {/* {!chatStarted && (
-          
-        
-        )} */}
         <div>
           <motion.div
             className="p-1 absolute"
@@ -98,7 +94,7 @@ function chatHeadline() {
           </motion.div>
         </div>
 
-        <div className="absolute w-full h-[calc(100%-64px)] overflow-y-auto p-4">
+        <div className="absolute w-full h-[calc(100%-64px)] overflow-y-auto p-2">
           {messages.map((msg, index) => (
             <div
               key={index}
@@ -118,9 +114,10 @@ function chatHeadline() {
           alt="Avatar"
           // width={90}
           // height={90}
-          className="absolute -right-20 -bottom-1 md:-right-30 md:w-[20%] w-[30%] "
+          className="absolute -right-20 -bottom-1 md:-right-30 md:w-[20%] w-[30%] hidden sm:block"
         />
       </div>
+
       <div className="w-full rounded-lg border bg-white  dark:bg-zinc-600 p-4 shadow-lg">
         <div className="flex">
           <input
