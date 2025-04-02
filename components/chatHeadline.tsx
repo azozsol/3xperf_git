@@ -5,6 +5,7 @@ import avatarIcon from '@/public/avatar.png' // Replace with your actual avatar 
 import Image from 'next/image'
 import { v4 as uuidv4 } from 'uuid'
 import { motion } from 'motion/react'
+import ReactMarkdown from 'react-markdown'
 
 function chatHeadline() {
   const [chatStarted, setChatStarted] = useState(false)
@@ -50,15 +51,15 @@ function chatHeadline() {
 
   return (
     <>
-      <div className="relative h-90 w-full md:w-[80%] rounded-3xl border-2 border-black dark:border-white shadow-lg">
+      <div className="relative h-90 w-full rounded-3xl border-2 border-black shadow-lg md:w-[80%] dark:border-white">
         {/* Header */}
-        <div className="flex items-center justify-between border-b-2 border-black dark:border-white px-4 py-3">
+        <div className="flex items-center justify-between border-b-2 border-black px-4 py-3 dark:border-white">
           <h2 className="text-xl font-bold text-blue-600">Chat with 3xperf</h2>
           <button
             onClick={() => setIsOpen(false)}
             className="cursor-pointer text-black transition-transform duration-200 hover:scale-125"
           >
-            <X size={20} className='dark:text-white' />
+            <X size={20} className="dark:text-white" />
           </button>
         </div>
 
@@ -66,7 +67,7 @@ function chatHeadline() {
 
         <div>
           <motion.div
-            className="p-1 absolute"
+            className="absolute p-1"
             initial={{ opacity: 1, y: 0 }}
             animate={
               chatStarted ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }
@@ -94,7 +95,7 @@ function chatHeadline() {
           </motion.div>
         </div>
 
-        <div className="absolute w-full h-[calc(100%-64px)] overflow-y-auto p-2">
+        <div className="absolute h-[calc(100%-64px)] w-full overflow-y-auto p-2">
           {messages.map((msg, index) => (
             <div
               key={index}
@@ -104,7 +105,20 @@ function chatHeadline() {
                   : 'mr-auto bg-gray-200 text-left text-black' // AI messages aligned left
               }`}
             >
-              {msg.text}
+              <ReactMarkdown
+                components={{
+                  a: ({ node, ...props }) => (
+                    <a
+                      {...props}
+                      className="text-green-600 underline hover:text-green-800"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />
+                  ),
+                }}
+              >
+                {msg.text}
+              </ReactMarkdown>
             </div>
           ))}
         </div>
@@ -114,23 +128,23 @@ function chatHeadline() {
           alt="Avatar"
           // width={90}
           // height={90}
-          className="absolute -right-20 -bottom-1 md:-right-30 md:w-[20%] w-[30%] hidden sm:block"
+          className="absolute -right-20 -bottom-1 hidden w-[30%] sm:block md:-right-30 md:w-[20%]"
         />
       </div>
 
-      <div className="w-full rounded-lg border bg-white  dark:bg-zinc-600 p-4 shadow-lg">
+      <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:bg-zinc-600">
         <div className="flex">
           <input
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onFocus={() => setChatStarted(true)} // Hide text when user starts typing
-            className="flex-1 rounded-l-lg border p-2 border-r-0 "
+            className="flex-1 rounded-l-lg border border-r-0 p-2"
             placeholder="Type a message..."
           />
           <button
             onClick={sendMessage}
-            className="rounded-r-lg bg-blue-900 p-2 px-8 hover:bg-blue-600 cursor-pointer text-white"
+            className="cursor-pointer rounded-r-lg bg-blue-900 p-2 px-8 text-white hover:bg-blue-600"
           >
             Send
           </button>
