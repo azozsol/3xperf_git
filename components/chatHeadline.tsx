@@ -1,13 +1,15 @@
 import React from 'react'
-import { X } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { X, Maximize2, Minimize2 } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
 import avatarIcon from '@/public/avatar.png' // Replace with your actual avatar path
 import Image from 'next/image'
 import { v4 as uuidv4 } from 'uuid'
 import { motion } from 'motion/react'
 import ReactMarkdown from 'react-markdown'
+import { cn } from '@/lib/utils'
 
 function chatHeadline() {
+  const [isMaximized, setIsMaximized] = useState(false)
   const [chatStarted, setChatStarted] = useState(false)
   const [isOpen, setIsOpen] = useState(true)
   const [message, setMessage] = useState('')
@@ -15,6 +17,9 @@ function chatHeadline() {
     { text: string; sender: 'user' | 'ai' }[]
   >([])
   const [sessionId, setSessionId] = useState('')
+
+  const chatContainerRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     // Generate a session ID only once per session
     let storedSessionId = localStorage.getItem('sessionId')
@@ -52,15 +57,36 @@ function chatHeadline() {
   return (
     <>
       <div className="relative h-90 w-full rounded-3xl border-2 border-black shadow-lg md:w-[80%] dark:border-white">
+      {/* <div
+        className={`${
+          isMaximized
+            ? "fixed inset-0 z-50 h-full w-full rounded-none border-none shadow-none"
+            : "relative h-90 w-full rounded-3xl border-2 border-black shadow-lg md:w-[80%] dark:border-white"
+        } bg-white dark:bg-gray-900 transition-all duration-300`}
+      > */}
         {/* Header */}
         <div className="flex items-center justify-between border-b-2 border-black px-4 py-3 dark:border-white">
           <h2 className="text-xl font-bold text-blue-600">Chat with 3xperf</h2>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="cursor-pointer text-black transition-transform duration-200 hover:scale-125"
-          >
-            <X size={20} className="dark:text-white" />
-          </button>
+
+          <div className="flex items-center space-x-2">
+            {/* <button
+              onClick={() => setIsMaximized(!isMaximized)}
+              className="cursor-pointer text-black transition-transform duration-200 hover:scale-125"
+              aria-label={isMaximized ? 'Minimize' : 'Maximize'}
+            >
+              {isMaximized ? (
+                <Minimize2 size={20} className="dark:text-white" />
+              ) : (
+                <Maximize2 size={20} className="dark:text-white" />
+              )}
+            </button> */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="cursor-pointer text-black transition-transform duration-200 hover:scale-125"
+            >
+              <X size={20} className="dark:text-white" />
+            </button>
+          </div>
         </div>
 
         {/* Content */}
@@ -95,7 +121,10 @@ function chatHeadline() {
           </motion.div>
         </div>
 
-        <div className="absolute h-[calc(100%-64px)] w-full overflow-y-auto p-2">
+        <div
+          ref={chatContainerRef}
+          className="absolute flex h-[calc(100%-64px)] w-full flex-col overflow-y-auto p-2"
+        >
           {messages.map((msg, index) => (
             <div
               key={index}
@@ -123,13 +152,13 @@ function chatHeadline() {
           ))}
         </div>
         {/* Avatar Image */}
-        <Image
-          src={avatarIcon}
-          alt="Avatar"
-          // width={90}
-          // height={90}
-          className="absolute -right-20 -bottom-1 hidden w-[30%] sm:block md:-right-30 md:w-[20%]"
-        />
+        {!isMaximized && (
+          <Image
+            src={avatarIcon}
+            alt="Avatar"
+            className="absolute -right-20 -bottom-1 hidden w-[30%] sm:block md:-right-30 md:w-[20%]"
+          />
+        )}
       </div>
 
       <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:bg-zinc-600">
