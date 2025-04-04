@@ -220,8 +220,8 @@ export default function Personal() {
               'Sends the project brochure via WhatsApp & starts convo',
             ],
             [
-              'Automated Booking management',
-              'Our Ai agent book your calendar & send you confirmation email',
+              'Automated Report',
+              'Our Ai agent send you a brief about the user’s information, level of interest and preferred time',
             ],
             [
               'Reporting',
