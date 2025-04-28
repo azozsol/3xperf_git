@@ -222,11 +222,7 @@ export default function Personal() {
             [
               'Automated Report',
               'Our Ai agent send you a brief about the user’s information, level of interest and preferred time',
-            ],
-            [
-              'Reporting',
-              '',
-            ],
+            ]
           ].map(([title, description]) => (
             <div key={title} className="mb-4">
               <p className="text-xl md:text-2xl font-bold">{title}</p>
