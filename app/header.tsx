@@ -5,8 +5,27 @@ import logo from '@/public/logo.svg'
 import arrow from '@/public/arrow.png'
 import Image from 'next/image'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
+import { useEffect, useState } from "react";
 
 export function Header() {
+  const [whatsAppMessage, setWhatsAppMessage] = useState('')
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const utm_source = urlParams.get('utm_source') || 'unknown'
+    const utm_medium = urlParams.get('utm_medium') || 'unknown'
+    const utm_campaign = urlParams.get('utm_campaign') || 'unknown'
+
+    const message = `utm_source=${utm_source}&utm_medium=${utm_medium}&utm_campaign=${utm_campaign}`
+    const encodedMessage = encodeURIComponent(message)
+
+    setWhatsAppMessage(encodedMessage)
+  }, [])
+
+  const handleClick = () => {
+    const whatsappUrl = `https://wa.me/971585837372?text=${whatsAppMessage}`
+    window.open(whatsappUrl, '_blank')
+  }
   return (
     <header className="mb-8 flex items-center justify-between">
       {/* <div>
@@ -37,7 +56,10 @@ export function Header() {
       </Link>
       {/* Button on the right */}
       <div>
-        <button className="w-full rounded-3xl border-4 border-zinc-900 bg-white px-4 py-2 text-zinc-600 hover:bg-zinc-400 hover:text-white dark:text-zinc-500 dark:hover:bg-zinc-700">
+        <button
+          className="w-full rounded-3xl border-4 border-zinc-900 bg-white px-4 py-2 text-zinc-600 hover:bg-zinc-400 hover:text-white dark:text-zinc-500 dark:hover:bg-zinc-700"
+          onClick={handleClick}
+        >
           <div className="flex items-center justify-between gap-1">
             <p>GET STARTED</p>
             <Image

@@ -212,7 +212,7 @@ export default function Personal() {
         <div className="flex flex-col items-center justify-center text-center text-zinc-600 dark:text-zinc-400">
           {[
             [
-              'Landing page Ai Chat',
+              'WhatsApp Ai Chat',
               'Answers question, filter qualified leads & collects contact info',
             ],
             [
@@ -221,7 +221,7 @@ export default function Personal() {
             ],
             [
               'Automated Report',
-              'Our Ai agent send you a brief about the user’s information, level of interest and preferred time',
+              'Our Ai agent send you a brief about the user’s information, level of interest and preferred time directly to your private WhatsApp',
             ]
           ].map(([title, description]) => (
             <div key={title} className="mb-4">
