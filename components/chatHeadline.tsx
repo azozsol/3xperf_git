@@ -66,7 +66,7 @@ function chatHeadline() {
       > */}
         {/* Header */}
         <div className="flex items-center justify-between border-b-2 border-black px-4 py-3 dark:border-white">
-          <h2 className="text-xl font-bold text-blue-600">Chat with 3xperf</h2>
+          <h2 className="text-xl font-bold text-blue-600">Chat with 3xperf agent</h2>
 
           <div className="flex items-center space-x-2">
             {/* <button

@@ -57,11 +57,11 @@ export function Header() {
       {/* Button on the right */}
       <div>
         <button
-          className="w-full rounded-3xl border-4 border-zinc-900 bg-white px-4 py-2 text-zinc-600 hover:bg-zinc-400 hover:text-white dark:text-zinc-500 dark:hover:bg-zinc-700"
+          className="w-full rounded-3xl border-4 border-zinc-900 bg-white px-4 py-2 text-zinc-600 hover:bg-green-600 hover:text-white dark:text-zinc-500 dark:hover:bg-green-600"
           onClick={handleClick}
         >
           <div className="flex items-center justify-between gap-1">
-            <p>GET STARTED</p>
+            <p >WhatsApp agent</p>
             <Image
               src={arrow}
               alt="Logo"
