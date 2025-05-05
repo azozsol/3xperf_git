@@ -61,7 +61,7 @@ export function Header() {
           onClick={handleClick}
         >
           <div className="flex items-center justify-between gap-1">
-            <p >WhatsApp agent</p>
+            <p>Chat with WhatsApp agent</p>
             <Image
               src={arrow}
               alt="Logo"

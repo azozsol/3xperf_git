@@ -139,7 +139,7 @@ function chatHeadline() {
                   a: ({ node, ...props }) => (
                     <a
                       {...props}
-                      className="text-green-600 underline hover:text-green-800"
+                      className="text-cyan-500 underline hover:text-cyan-800"
                       target="_blank"
                       rel="noopener noreferrer"
                     />
