@@ -7,8 +7,10 @@ import penIcon from '@/public/pen-37.svg'
 import infoIcon from '@/public/info-61.svg'
 import buildings from '@/public/footerImage.svg'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation';
 
 function contact() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,8 +58,10 @@ function contact() {
 
         if (response.ok) {
           console.log('Email sent successfully!')
+          router.push('/thankyou');
         } else {
           console.error('Error sending email from contact')
+          alert('Error sending message. Please try again.');
         }
       } catch (error) {
         console.error('Error submitting form:', error)

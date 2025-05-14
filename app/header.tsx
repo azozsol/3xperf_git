@@ -5,7 +5,8 @@ import logo from '@/public/logo.svg'
 import arrow from '@/public/arrow.png'
 import Image from 'next/image'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
-import { useEffect, useState } from "react";
+import whatsappIcon from '@/public/images/whatsapp.svg'
+import { useEffect, useState } from 'react'
 
 export function Header() {
   const [whatsAppMessage, setWhatsAppMessage] = useState('')
@@ -57,18 +58,18 @@ export function Header() {
       {/* Button on the right */}
       <div>
         <button
-          className="w-full rounded-3xl border-4 border-zinc-900 bg-white px-4 py-2 text-zinc-600 hover:bg-green-600 hover:text-white dark:text-zinc-500 dark:hover:bg-green-600"
           onClick={handleClick}
+          className="group w-full rounded-3xl border-2 border-zinc-900 bg-white px-4 py-2 transition hover:bg-green-600 hover:text-white dark:text-black dark:hover:bg-green-600"
         >
           <div className="flex items-center justify-between gap-1">
-            <p>Chat with WhatsApp agent</p>
             <Image
-              src={arrow}
+              src={whatsappIcon}
               alt="Logo"
-              width={100}
-              height={100}
-              className="w-auto"
+              width={30}
+              height={30}
+              className="transition group-hover:brightness-0 group-hover:invert"
             />
+            <p className="transition group-hover:text-white">WhatsApp agent</p>
           </div>
         </button>
       </div>

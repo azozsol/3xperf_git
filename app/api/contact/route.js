@@ -21,7 +21,7 @@ export async function POST(request) {
 
     // Nodemailer transporter setup
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
+      host: 'smtp.hostinger.com',
       port: 465,
       secure: true,
       auth: {
@@ -48,8 +48,8 @@ export async function POST(request) {
     });
 
     const mailOptions = {
-      from: email, // Sender's email (from the form)
-      to: 'sol.moh.azoz@gmail.com', // Your email
+      from: 'support@3xperf.com', // Sender's email (from the form)
+      to: 'support@3xperf.com', // Your email
       cc: email, // CC to the sender
       subject: `New Contact Form Submission from ${name}`,
       // text: emailHtml,

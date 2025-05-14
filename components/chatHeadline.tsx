@@ -161,7 +161,7 @@ function chatHeadline() {
         )}
       </div>
 
-      <div className="w-full rounded-lg border bg-white p-4 shadow-lg dark:bg-zinc-600">
+      <div className="w-full rounded-lg border bg-white p-4 my-2 shadow-lg dark:bg-zinc-600">
         <div className="flex">
           <input
             type="text"
